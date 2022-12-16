@@ -1,0 +1,31 @@
+VR_UI
+
+
+-----------------------------------------------------------------------------
+
+Canvas < world space 후 main camera 넣고 
+		Tracked Device Graphic Raycaster 넣기
+		크기 조절하기
+
+EventSystem 에 !뜨는거 삭제 후 XR Controller(action-based)넣기
+
+canvas에 text, button, slider넣기
+
+R, L Hand controller 에 XR Ray Interactor 에 raycaset configuration 
+						(Raycast Mask > UI)
+
+XR Interactor Line Visual 의 Invaild Color Gradient 를 Alpha 값 0 0 만들어 
+	다 투명하게 만들기, Line Width를 줄이기
+
+
+Craate Empty > Tablet 으로 만들기 
+	안에 큐브를 적당한 크기로 만들고 
+	Canvas 복사해서 붙이고 이것을 또 적당한 크기와 위치로 만들기
+
+L, R Hand Controller 에 LayerMask 를 새로 Grabable 만들어서 추가하기
+
+Tablet을 Grabable로 LayerMask 적용하기(하위 객체 포함으로)
+	tablet 에 XR Grab Interactable넣기(자동적으로 Rigidbody 넣어짐)
+
+
+

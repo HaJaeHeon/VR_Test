@@ -1,0 +1,99 @@
+일단 oculus 에서 기기 연결을 air link 로 
+
+연결 후에 기기에서 설정 > 링크 하면 될듯 하다
+
+그 후 프로젝트의 실행 하면 될듯함
+
+--------------------------------------------
+XR Plugin  download
+
+project Settings > package Manager >> Advanced Settings (Enable preview Packages) 체크
+
+package Manager > OpenXR Plugin , XR Interaction Toolkit 임포트
+
+Project Settings > XR Plug-in Management > Opne XR 체크 > 빨간 느낌표 들어가서 FIx all
+							*중요(안하면 컨트롤러안됨)* Open XR 체크 해제, Oculus 체크
+
+Quality > Pixel Light Count > 1 
+	    Anisotropic Textures > Per Texture
+	    Anti Aliasing > 4x Multi Sampling
+	   Soft Particles 체크해제
+
+-----------------------------------------------
+
+Assets 하위의 Samples > XR Interaction Toolkit 하위 폴더에 XRI Default XR .... 들 Inspector 에서 다 add하기
+
+그 폴더 안의 XRI Default Input Actions 라는거는 뭔지 모름
+
+------------------------------------------------------------------------------
+
+ProjectSEttings > Preset Manager > ActionBasedController 에 각각 Right , Left 넣기
+
+------------------------------------------------------------------------
+
+XR Rig 에 Input Action Manager 넣기 (기본적으로XRI Defalt Input Actions 들가있음)
+
+사물 그랩 관련 >> 
+
+??? 사물 레이어 체크하는 이유..?
+
+큐브 생성 후 Grab Interactable 스크립트 추가 
+(자동적으로 Rigidbody 넣어짐)
+
+RHandTrigger , LHandTrigger 로 잡음 (RindexTrigger, LIndexTrigger 아님 즉, 아래쪽 트리거
+						검지 아니고 중지 트리거라는 뜻)
+
+--------
+
+Locomotion System 
+
+?? Teleprotation Provider >> 유튜버 말하길 텔포는 좀 인지부조화? 메스꺼움을 일으키기 쉽다라고함
+	따라서 삭제 후 Continuous Move Provider (Action-based) 추가
+	System 컴포넌트 안에 자기 자신 넣기
+	Right Hand Move Action 의 Use Reference 체크해제	
+
+
+Left Hand Snap Turn Action 의 Use Reference 체크 해제
+(안하면 쥰내 돌아옴)
+
+왼쪽은 이동, 오른쪽은 일정 각 회전
+
+XR Origin 에 넣어 프리팹화 ㄱㄱ
+(이동 및 회전을 같이 사용 할 것이기 때문에)
+
+---------------------------------------
+
+모델 가져와서  각각 ~~~Hand Controller 하위에 넣고
+넣은것에 Animator컴포넌트 추가 (모델은 Rig 에 Generic - Create From This Model로 만들기
+<상위 트랜스폼 포지션     0.03 / 0.01 / 0 .... -0.03 / 0.01 / 0>
+<하위 트랜스폼 로테이션만 z 90 /// -90
+
+Avatar 에 각자 아바타 넣기
+culling mode > always animate
+
+animator controller만들기
+animation만들기(loop풀기)
+아바타마스크 만들기(Transform 에서 동작 원하는것만 선택하기)
+animator controller 에서 Layer추가로 Trigger , Grip 만들어서 아바타 마스크 만든걸 비중 1로 주기
+
+파라메타 float로 그립, 트리거 만들기
+
+new state 와 blend tree 양방향 transition만들기
+그립이라면 그립 변수 0.01보다 클때 작을 때로 만들기
+블랜드 트리 만들어서 Has Exit Time 이랑 Fixed Duration 끄기
+블랜드 트리 안에는 Motion이 LeftHandAnimation 파라메타 Trigger, Grip / 1 로 만들기
+
+------------------------------
+
+새로운 스크립트 2개 만들기(Hand, HandController)
+
+각각 컨트롤러에는 컨트롤러 스크립트 넣기
+<트리거 또는 그립 , 사물 들면 안보이기>
+
+>> 할 것들 <<
+
+Grab Interactable 스크립트 조사
+
+Locomotion System의 Snap Turn Provider 와 Continuous Move Provider 스크립트 보기
+
+라디안 알아보기

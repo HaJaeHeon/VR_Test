@@ -1,0 +1,69 @@
+** Project Settings > Time >> 1/90으로 바꾸기 **
+
+--------------------------------------------------------
+물리력 넣기
+
+
+
+
+----------------------------------------------------------
+버튼 상호작용
+
+Pedestal (Cube) 받침대 만들기
+
+Button(Empty Object) 아래 Base(Cylinder) / Push(Empty Object)만들고 
+		Push 아래 Clicker(Cylinder)만들어서 버튼모양 만들기
+
+Base는 Rigidbody추가
+Is Kinematic > true
+Mesh Colider
+
+
+Push는 Box Colider , Configurable Joint만들고  RigidBody넣기(아마 조인트 넣으면 따라 붙을거임)
+	Joint에 Y Motion만 Limited , 나머지 Locked
+	Linear Limit > Limit > 0.015 
+	Y Drive > Position Spring : 50 // Position Damper : 10
+
+	Rigidbody > Use Gravity : false 
+			Constraints Freeze Rotation : all true
+
+
+
+push에 스크립트 만들기
+
+----------------------------------------------------------------
+
+
+IK 적용 
+
+package manager 에서 Animation Rigging 다운받고 임포트하기
+(뼈대 맞추기 기본 에셋)
+
+캐릭터 선택 후
+Animation Rigging > Bone Renderer Setup 하면 캐릭터에 파랗게 뼈대 생성됨
+
+캐릭터 선택 후 Rig Setup하면 캐릭터 자식으로 Rig1 이 생성됨
+그 안에 Two Bone IK Constraint 컴포넌트 추가
+
+Tip 에 손목 부분을 넣고  컴포넌트 우클릭(Auto Setup from Tip Transform)하면 자동적으로 채워짐
+
+손목과 IK_Hand_R_target 을 Animation Rigging > Align Transform 하기(뭐하는건지 모르겠음)
+
+팔과 IK_Hand_R_hint 를 클릭 후 Animation Rigging > Align Transform 하고 뒤로 조금 움직이기
+
+이런식으로 반대쪽 손 만들기
+
+
+
+목은 IK_Head, 자식으로 IK_Head_target만들기
+IK_Head는 Multi-Parent Constraint 넣고 Constraint Object 에는 Head넣고
+Source Object는 IK_Head_target넣기
+
+Hand, Handcontroller 수정 및 Hand target에는 Hand, Head target에  Head 추가
+
+Hand target에 RigidBody 넣고 Use Gravity 끄기
+ 자식으로 Collider만들어서 박스콜라이더 Interpolate, Countinueous
+Follow Object는 각자 컨트롤러 넣기
+
+Head 스크립트는 Root Object > Character (모델) 
+			Follow Object > XR Origin아래의 Main Camera

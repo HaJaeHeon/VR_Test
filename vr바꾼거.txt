@@ -1,0 +1,24 @@
+바꾼거 > Locomotion  > countiuous turn provider 추가
+(오른손 move / 왼손 turn) snap 안씀
+
+XR Origin >> Character Controller, Character Contreoller Driver 추가
+
+
+-------------------------------------------------------------------------
+
+Teleportation >>
+
+plane 에 Teleportation Area 를 추가 
+(이 상태에서도 동작한다. 하지만 그립을 계속하고 있으면 지속적인 텔포가 일어난다.)
+
+왼손에 XR  Ray Interactor 에서 Raycast Configuration > Line Type > Projectile Curve
+velocity > 5 (너무 빨라서 내림)
+
+
+Assets > Samples > XR Interaction Toolkit > 2.2.0 > Starter Assets > XRI Defalt Input Action(지도같이 생긴거 
+더블클릭)
+XRI LeftHand Locomotion > Teleport Mode Activate > Primary2DAxis > Sector > Directions > 
+                                      										Everything바꾸기
+
+창 맨 위의 Auto save클릭
+

@@ -1,0 +1,28 @@
+이전의 Rig 1 > Rig Upper 로 이름 변경
+
+character 선택 후  이전과 똑같이 Animation Riggin  > Rig Setup
+
+Rig Lower로 이름 변경
+
+자식으로 새로 빈 오브젝트 생성 후 이름을 IK_Leg_R로 바꿈
+	컴포넌트  Two Bone IK Constraint 넣고 Tip에 Bip001 R Foot 넣고
+		우클릭 후 Auto Setup from Tip Transform 누르면 알아서 적용됨
+
+자식으로 들어가 있는 Target에는 발바닥을 Shift누르고 같이 선택되어 있는 
+	상태에서 Animation Setup > Align Transform 하기
+
+Hint는 무릎 부분을 똑같이 작업하고
+	Hint의 위치를 앞쪽 위로 조금 이동시켜주기
+	(무릎관절 굽히는 것 때문인듯하다 / 골반 정도까지, 무릎 굽히면 닿는정도로 앞으로 배치)
+
+반대쪽 발도 똑같이 작업한다
+
+IK_Leg_R_target에 스크립트 넣기 (IKFootSolver)
+
+스크립트에
+	Terrain Layer > Default
+	Body > Character
+	Other Foot > 서로 반대발 넣어주면됨
+
+한 발에는 IsFirstStep을 false로 놔주기
+
