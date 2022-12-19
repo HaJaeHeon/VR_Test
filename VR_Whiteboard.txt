@@ -1,0 +1,28 @@
+Plane 하나 만들어서 Ground 로 이름 변경
+
+Capsule 만들어서 Player_Size 로 이름 변경
+
+빈 오브젝트 만들어서 이름 Marker로 변경
+	자식으로 Handle이라는 큐브 적당한 크기로 생성
+	또 Tip이라는 큐브 만들어서 적당한 크기로 생성 ( 색깔 넣기 )
+	또, Grab_Point라는 빈 오브젝트 만들어서 x축 회전 후 살짝 위로 이동(잡는위치)
+
+
+스크립트 생성
+
+
+Whiteboard 에 스크립트 넣고 태그를 Whiteboard 로 변경
+
+Marker에 스크립트 WhiteboardMarker 스크립트 생성 및 추가
+	Tip 에는 Marker자식인 Tip transform 넣어주기
+
+양손 컨트롤러에 Anchor Control 빼기
+
+Marker에 XR Grab Interactable 넣고
+	Movement Type 을 Velocity Tracking으로 바꿈
+	Attach Tramsform 을 Grab_Point 넣어주기
+   Rigidbody 에 Use Gravity > false (있게 한다면 적당히 알아서..)
+
+Locomotion System 만들어주기
+
+Prefabs 폴더에 Marker 와 Whiteboard 넣기
