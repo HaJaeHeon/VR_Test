@@ -1,0 +1,25 @@
+Plane 하나 만들기
+
+XR Origin 만들기
+
+소켓에 사용할 오브젝트 Hierachy에 만들기
+	Mesh 들어간 오브젝트에 MeshCollider, Rigidbody , XR Grab Interactable 컴포넌트
+		넣어주기
+	
+	Rigidbody - mass >> 10
+	
+	Mesh Collider - Convex >> true
+
+	XR Grab Interactable 에 Interaction Layer Mask 만들어주기(Default 포함하기)
+
+
+각각의 컨트롤러에 Anchor Control   >> false 
+	자식으로 Cube, Sphere 만들고 scale  0.1 로 만들기
+
+		Sphere에 XR Socket Interactor 넣고 Interaction Layer Mask 바꾸기
+		Sphere Collider Is Triger >> True
+
+
+
+
+
