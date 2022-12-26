@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4812910893168508237}
   - component: {fileID: 4812910893168508236}
   - component: {fileID: 4812910893168508226}
-  - component: {fileID: 4812910893168508227}
+  - component: {fileID: 337050353}
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
@@ -161,7 +161,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4812910893168508227
+--- !u!114 &337050353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -309,13 +309,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4812910893944854458}
-  m_LocalRotation: {x: 0.707107, y: -0, z: -0, w: 0.7071066}
-  m_LocalPosition: {x: 0, y: 0.077, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.13, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4812910893168508237}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &4812910894820360014
 GameObject:
   m_ObjectHideFlags: 0

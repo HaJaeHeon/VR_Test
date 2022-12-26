@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Timeout: 10
-  m_XROrigin: {fileID: 0}
+  m_XROrigin: {fileID: 2127107570}
 --- !u!4 &1298416141
 Transform:
   m_ObjectHideFlags: 0
@@ -1999,7 +1999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 91715571060236215, guid: 85d3ad9936b75c549ae71a90ecd78dd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 91715571060236215, guid: 85d3ad9936b75c549ae71a90ecd78dd6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2042,10 +2042,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4812910893168508227, guid: 14b702ed0ef1a2242a3768b13d467161, type: 3}
+    - target: {fileID: 337050353, guid: 14b702ed0ef1a2242a3768b13d467161, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 145639944}
+    - target: {fileID: 4812910893168508236, guid: 14b702ed0ef1a2242a3768b13d467161, type: 3}
+      propertyPath: _penSize
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4812910893168508237, guid: 14b702ed0ef1a2242a3768b13d467161, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2056,7 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4812910893168508237, guid: 14b702ed0ef1a2242a3768b13d467161, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 4812910893168508237, guid: 14b702ed0ef1a2242a3768b13d467161, type: 3}
       propertyPath: m_LocalPosition.z

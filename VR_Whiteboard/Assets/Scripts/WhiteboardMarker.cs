@@ -8,15 +8,15 @@ public class WhiteboardMarker : MonoBehaviour
     [SerializeField] private Transform _tip;
     [SerializeField] private int _penSize = 5;
 
-    private Renderer _renderer;
-    private Color[] _colors;
-    private float _tipHeight;
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Color[] _colors;
+    [SerializeField] private float _tipHeight;
 
-    private RaycastHit _touch;
-    private Whiteboard _whiteboard;
-    private Vector2 _touchPos, _lastTouchPos;
-    private bool _touchedLastFrame;
-    private Quaternion _lastTouchRot;
+    [SerializeField] private RaycastHit _touch;
+    [SerializeField] private Whiteboard _whiteboard;
+    [SerializeField] private Vector2 _touchPos, _lastTouchPos;
+    [SerializeField] private bool _touchedLastFrame;
+    [SerializeField] private Quaternion _lastTouchRot;
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class WhiteboardMarker : MonoBehaviour
                 {
                     _whiteboard.texture.SetPixels(x, y, _penSize, _penSize, _colors);
 
-                    for(float f = 0.01f; f < 1.00f; f+= 0.01f)
+                    for(float f = 0.01f; f < 1.00f; f += 0.03f)
                     {
                         var lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
                         var lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
@@ -62,7 +62,7 @@ public class WhiteboardMarker : MonoBehaviour
 
                     transform.rotation = _lastTouchRot;
 
-                    _whiteboard.texture.Apply();
+                    _whiteboard.texture.Apply(); 
                 }
 
                 _lastTouchPos = new Vector2(x, y);
