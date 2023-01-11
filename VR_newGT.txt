@@ -1,5 +1,7 @@
 VR_newGT
 
+gorillaTagMovement 는 toolkit 업데이트로 헷갈려서 뭔가를 잘못 건들인것 같다
+
 -------------------------------------------------------------
 
 Window > Rendering  > Lighting > 스카이박스 삭제
