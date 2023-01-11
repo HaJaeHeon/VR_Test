@@ -1,0 +1,57 @@
+VR_newGT
+
+-------------------------------------------------------------
+
+Window > Rendering  > Lighting > 스카이박스 삭제
+
+Plane 만들어서 Ground로 일므 변경 
+
+Material 하나 회색으로 만든 후  Ground에 적용
+
+빈 오브젝트 하나 만들고 Physics XR Rig 로 이름 변경
+	하위에 Hand Left 인 빈 오브젝트 만든 후 Rigidbody 의
+		mass를 20 / interpolate > interpolate / continuous dynamic 
+
+XR Origin 하나 만들기
+
+스크립트 PhysicsHand 만들고 Hand Left에 넣어주기
+
+Hand Left 복제 후 Hand Right로 변경
+
+Hand Left / Hand Right 를 Player Layer로 변경
+
+XR Origin 의 main camera 에 Capsule collider 넣고 Radius > .75
+								Height > .7로 변경
+
+XR Origin의 위치를 카메라 Collider에 맞게 위로 올리기
+	XR Origin Rigidbody를 mass 20 이상으로 / 
+		interpolate > interpolate 
+		collision detection > continuous dynamic
+		Constraints > Freeze Rotation x, y, z 다 true로 만들어 고정
+
+PhysicsHand 스크립트 작성 
+
+PhysicsHand의 Player Rigidbody > XR Origin 넣고
+	Target에는 각각의 XR Origin하위의 각각의 Controller넣기
+
+각각의 Hand Controller 의 Line Renderer , XR Interactor Line Visual 끄기
+
+Edit  > project Settings >  Physics > Player끼리의 레이어 충돌 체크해제
+							(Layer Collision Matrix)
+
+
+작은 큐브 하나 만들어서 Rigidbody 넣고 실험해보기 .....
+
+
+
+PhysicsHand에 HookesLaw  추가
+
+Package Manager의 ProBuilder 사용해서 구조물 만든 후 
+Point Light 넣고
+Physics Material 만든 후 Hand로 이름 변경 
+	Dynamic Friction > 100
+	Static Friction > 100
+	Friction combine > Maximum
+Physics XR Rig 하위의 Hand들에 각각 넣어주기
+
+ 즐기기 
