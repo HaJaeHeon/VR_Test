@@ -1,0 +1,47 @@
+VR_Swim
+
+---------------------------------------------------------------------
+
+시작시 Input System확인
+	Project Settings > Player > Active Input Handing 
+		> Input Manager(Old) 이면
+			Package Manager에서 Input System 에서 업데이트 
+				Input System Pakage(New)로 변경
+
+Swim 스크립트 작성
+
+XR Origin 이랑 Locomotion System 만들기
+
+XR Origin 에서 이름을 Player로 바꾸기
+	컴포넌트 Rigidbody 추가 후 Use Gravity > false
+
+	Freeze Rotation x, y, z 다 잠구기 (true)
+
+ 	CollisionDetection  > Continuous Dynamic 
+
+XRI Default Input Actions 에서 XRI LeftHand에서 
+	+버튼 누르고 이름을 Velocity 로 만들기
+		Action > Action Type > value
+			   Control Type > Vector3
+		Binding > path >  XR Controller > Oculus Touch Controller(OpenXR)
+			> Oculus Touch Controller(OpenXR) (LeftHand) 
+				> velocity
+반대 손도 똑같이 만들어주면 됌
+나올 때 위쪽에 Save Asset누르고 나오기
+
+Swim 스크립트 레퍼런스 값들은 
+	Left Controller Swim > XRI LeftHand/Select 
+	Left controller Velocity > XRI LeftHand/Velocity
+
+	Tracking Reference > Player transform 넣기
+
+각각의 Hand에서 XR interaction Line Visual > 색깔들 
+		모든 구간 alpha값 0만들어주기
+
+위치 확인용 Plane 하나 만들기
+
+Player 아래의 Main Camera에 Capsule Collider하나 넣어주고 크기 조절하기
+
+
+조작법 > 트리거 말고 그립 버튼을 양손 둘 다 눌러서 밀면
+	캐릭터 나아가짐
