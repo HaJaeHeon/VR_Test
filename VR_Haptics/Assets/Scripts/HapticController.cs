@@ -1,12 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class HapticController : MonoBehaviour
 {
-    public static XRBaseController leftController, rightController;
+    public XRBaseController leftController, rightController;
     public float defaultAmplitude = 0.2f;
     public float defaultDuration = 0.5f;
-    
+
     [ContextMenu("Send Haptics")]
     public void SendHaptics()
     {
@@ -14,13 +15,13 @@ public class HapticController : MonoBehaviour
         rightController.SendHapticImpulse(defaultAmplitude, defaultDuration);
     }
 
-    public static void SendHaptics(float amplitude, float duration)
+    public void SendHaptics(float amplitude, float duration)
     {
         leftController.SendHapticImpulse(amplitude, duration);
         rightController.SendHapticImpulse(amplitude, duration);
     }
 
-    public static void SendHaptics(bool isLeftController, float amplitude, float duration)
+    public void SendHaptics(bool isLeftController, float amplitude, float duration)
     {
         if (isLeftController)
         {
@@ -38,10 +39,10 @@ public class HapticController : MonoBehaviour
     }
 }
 
-class NewClass
-{
-    public void Shoot()
-    {
-        HapticController.SendHaptics(.1f, .7f);
-    }
-}
+//class NewClass
+//{
+//    public void Shoot()
+//    {
+//        HapticController.SendHaptics(.1f, .7f);
+//    }
+//}
