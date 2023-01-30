@@ -16,5 +16,7 @@ public class PlayerReset : MonoBehaviour
       var distanceDiff = resetTransform.position 
                          - playerHead.transform.position;
       player.transform.position += distanceDiff;
+      
+      Debug.Log("1");
    }
 }
