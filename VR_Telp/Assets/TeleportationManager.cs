@@ -38,6 +38,9 @@ public class TeleportationManager : MonoBehaviour
 
         if (_thumbstick.triggered)
             return;
+
+        if (!rayInteractor.enabled)
+            return;
         
         if(!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
@@ -49,23 +52,29 @@ public class TeleportationManager : MonoBehaviour
         TeleportRequest request = new TeleportRequest()
         {
             destinationPosition = hit.point,
-            destinationRotation = Quaternion.Euler(0, gameObject.GetComponentInParent<Transform>().rotation.y, 0),
-            matchOrientation = MatchOrientation.TargetUp,
-            requestTime = 1f
         };
 
         provider.QueueTeleportRequest(request);
+
+        rayInteractor.enabled = false;
+        _isActive = false;
     }
 
     private void OnTeleportActivate(InputAction.CallbackContext context)
     {
-        rayInteractor.enabled = true;
-        _isActive = true;
+        if (!_isActive)
+        {
+            rayInteractor.enabled = true;
+            _isActive = true;
+        }
     }
 
     private void OnTeleportCancel(InputAction.CallbackContext context)
     {
-        rayInteractor.enabled = false;
-        _isActive = false;
+        if (_isActive && rayInteractor.enabled == true)
+        {
+            rayInteractor.enabled = false;
+            _isActive = false;
+        }
     }
 }
