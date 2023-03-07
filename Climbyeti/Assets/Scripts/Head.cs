@@ -18,6 +18,7 @@ public class Head : MonoBehaviour
         //rootObject.forward = Vector3.ProjectOnPlane(followObject.up, Vector3.up).normalized;
         rootObject.position = followObject.position + headBodyOffset;
         rootObject.forward = Vector3.ProjectOnPlane(followObject.forward, Vector3.up).normalized;
+        //rootObject.rotation = followObject.rotation * Quaternion.Euler(rotationOffset);
 
         transform.position = followObject.TransformPoint(positionOffset);
         transform.rotation = followObject.rotation * Quaternion.Euler(rotationOffset);
